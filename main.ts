@@ -15,14 +15,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Collectable, function (sprite, otherSprite) {
     info.changeLifeBy(1)
-    duckFood.destroy()
+    otherSprite.destroy()
 })
 sprites.onDestroyed(SpriteKind.Projectile, function (sprite) {
     info.changeScoreBy(2)
 })
+let duckFood: Sprite = null
 let Duck: Sprite = null
 let duckSpeech = 0
-let duckFood: Sprite = null
 scene.setBackgroundColor(1)
 let thePlayer = sprites.create(img`
     . . . . . . f f f f . . . . . . 
